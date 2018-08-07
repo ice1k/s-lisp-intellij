@@ -26,8 +26,6 @@ WHITE_SPACE=[ \n\r\t]
 
 INCOMPLETE_STRING=\"([^\"\\]|\\[^])*
 STRING_LITERAL={INCOMPLETE_STRING}\"
-INCOMPLETE_STRING2=\'([^\'\\]|\\[^])*
-STRING_LITERAL2={INCOMPLETE_STRING2}\'
 
 DIGIT=[0-9]
 
@@ -59,14 +57,11 @@ UNKNOWN_CHARACTER=[^a-zA-Z!@$\^&_:=<|>?.\\+\-~*/%#0-9\";]
 \] { yybegin(YYINITIAL); return SLispTypes.RIGHT_BRACKET; }
 \{ { yybegin(YYINITIAL); return SLispTypes.LEFT_BRACE; }
 \} { yybegin(YYINITIAL); return SLispTypes.RIGHT_BRACE; }
+\' { yybegin(YYINITIAL); return SLispTypes.QUOTE; }
 
 {INCOMPLETE_STRING}
 	{ yybegin(YYINITIAL); return TokenType.BAD_CHARACTER; }
 {STRING_LITERAL}
-	{ yybegin(YYINITIAL); return SLispTypes.STR; }
-{INCOMPLETE_STRING2}
-	{ yybegin(YYINITIAL); return TokenType.BAD_CHARACTER; }
-{STRING_LITERAL2}
 	{ yybegin(YYINITIAL); return SLispTypes.STR; }
 
 {INCOMPLETE_COMMENT}

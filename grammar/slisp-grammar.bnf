@@ -13,7 +13,7 @@
 }
 
 file ::= element*
-element ::= string | number | symbol | quotedSymbol | bracketed | braced | parenthesised
+element ::= QUOTE? (string | number | symbol | bracketed | braced | parenthesised)
 
 bracketed ::= LEFT_BRACKET element* RIGHT_BRACKET
 braced ::= LEFT_BRACE element* RIGHT_BRACE
@@ -21,6 +21,5 @@ parenthesised ::= LEFT_PARENTHESE element* RIGHT_PARENTHESE
 
 number ::= NUM
 symbol ::= SYM
-quotedSymbol ::= QUOTED_SYM
 
 string ::= STR

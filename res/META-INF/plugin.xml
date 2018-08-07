@@ -34,10 +34,10 @@
 
 	<!--<actions>-->
 		<!--<action-->
-				<!--id="Lice.NewLiceFile"-->
+				<!--id="SLisp.NewLiceFile"-->
 				<!--class="org.lice.lang.action.NewLiceFileAction"-->
-				<!--text="Lice File"-->
-				<!--description="Create a lice script file">-->
+				<!--text="S-Lisp File"-->
+				<!--description="Create an S-Lisp script file">-->
 			<!--<add-to-group-->
 					<!--group-id="NewGroup"-->
 					<!--anchor="before"-->

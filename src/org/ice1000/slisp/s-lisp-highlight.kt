@@ -17,6 +17,7 @@ object SLispSyntaxHighlighter : SyntaxHighlighter {
 	@JvmField val COMMENT_KEY = arrayOf(COMMENT)
 	@JvmField val STRING = TextAttributesKey.createTextAttributesKey("S_LISP_STRING", DefaultLanguageHighlighterColors.STRING)
 	@JvmField val STRING_KEY = arrayOf(STRING)
+	@JvmField val QUOTED = TextAttributesKey.createTextAttributesKey("S_LISP_QUOTED", DefaultLanguageHighlighterColors.METADATA)
 
 	override fun getHighlightingLexer() = SLispLexerAdapter()
 	override fun getTokenHighlights(type: IElementType?): Array<TextAttributesKey> = when (type) {
@@ -33,5 +34,9 @@ class SLispSyntaxHighlighterFactory : SyntaxHighlighterFactory() {
 
 class SLispAnnotator : Annotator {
 	override fun annotate(element: PsiElement, holder: AnnotationHolder) {
+		if (element.firstChild?.node?.elementType == SLispTypes.QUOTE) {
+			holder.createInfoAnnotation(element, null)
+					.textAttributes = SLispSyntaxHighlighter.QUOTED
+		}
 	}
 }
