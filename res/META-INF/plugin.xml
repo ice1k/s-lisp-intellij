@@ -1,0 +1,47 @@
+<idea-plugin>
+	<name>S-Lisp</name>
+	<category>Custom Languages</category>
+	<vendor email="ice1000kotlin@foxmail.com" url="http://ice1000.org">ice1000</vendor>
+
+	<idea-version since-build="145.0"/>
+
+	<depends>com.intellij.modules.lang</depends>
+	<extensions defaultExtensionNs="com.intellij">
+		<fileTypeFactory implementation="org.ice1000.slisp.SLispFileTypeFactory"/>
+		<!--<colorSettingsPage implementation="org.lice.lang.LiceColorSettingsPage"/>-->
+		<!--<spellchecker.support-->
+				<!--language="S-Lisp"-->
+				<!--implementationClass="org.lice.lang.editing.LiceSpellCheckingStrategy"/>-->
+		<lang.commenter
+				language="S-Lisp"
+				implementationClass="org.ice1000.slisp.SLispCommenter"/>
+		<lang.braceMatcher
+				language="S-Lisp"
+				implementationClass="org.ice1000.slisp.SLispBraceMatcher"/>
+		<lang.parserDefinition
+				language="S-Lisp"
+				implementationClass="org.ice1000.slisp.SLispParserDefinition"/>
+		<lang.syntaxHighlighterFactory
+				language="S-Lisp"
+				implementationClass="org.ice1000.slisp.SLispSyntaxHighlighterFactory"/>
+		<annotator
+				language="S-Lisp"
+				implementationClass="org.ice1000.slisp.SLispAnnotator"/>
+		<!--<completion.contributor-->
+				<!--language="S-Lisp"-->
+				<!--implementationClass="org.lice.lang.editing.LiceBuiltinSymbolsCompletionContributor"/>-->
+	</extensions>
+
+	<!--<actions>-->
+		<!--<action-->
+				<!--id="Lice.NewLiceFile"-->
+				<!--class="org.lice.lang.action.NewLiceFileAction"-->
+				<!--text="Lice File"-->
+				<!--description="Create a lice script file">-->
+			<!--<add-to-group-->
+					<!--group-id="NewGroup"-->
+					<!--anchor="before"-->
+					<!--relative-to-action="NewFile"/>-->
+		<!--</action>-->
+	<!--</actions>-->
+</idea-plugin>

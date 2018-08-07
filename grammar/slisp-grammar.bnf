@@ -1,0 +1,26 @@
+{
+	parserClass='org.ice1000.slisp.SLispParser'
+	extends='com.intellij.extapi.psi.ASTWrapperPsiElement'
+	psiClassPrefix='SLisp'
+	psiImplClassSuffix='Impl'
+	psiPackage='org.ice1000.slisp.psi'
+	psiImplPackage='org.ice1000.slisp.psi.impl'
+
+	tokenTypeClass='org.ice1000.slisp.SLispTokenType'
+	elementTypeHolderClass='org.ice1000.slisp.psi.SLispTypes'
+	elementTypeClass='org.ice1000.slisp.SLispElementType'
+	psiImplUtilClass='org.ice1000.slisp.psi.impl.SLispPsiImplUtils'
+}
+
+file ::= element*
+element ::= string | number | symbol | quotedSymbol | bracketed | braced | parenthesised
+
+bracketed ::= LEFT_BRACKET element* RIGHT_BRACKET
+braced ::= LEFT_BRACE element* RIGHT_BRACE
+parenthesised ::= LEFT_PARENTHESE element* RIGHT_PARENTHESE
+
+number ::= NUM
+symbol ::= SYM
+quotedSymbol ::= QUOTED_SYM
+
+string ::= STR
